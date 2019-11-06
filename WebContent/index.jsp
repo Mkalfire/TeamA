@@ -21,7 +21,9 @@
 
 <%@ include file="includes/nav.jsp"%>
 
-<section></section>
+<section>
+<h1>Prueba commit</h1>
+</section>
 
 <%@ include file="includes/footer.jsp" %>
 
