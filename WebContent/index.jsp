@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<h1>CONTROL DE GIT HUB</h1>
 
 <div class="contenedor">
 <%@ include file="includes/header.jsp" %>
