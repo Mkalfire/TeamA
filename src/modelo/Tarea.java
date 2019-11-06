@@ -98,26 +98,11 @@ public class Tarea {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
+
 	@Override
 	public String toString() {
 		return "Tarea [titulo=" + titulo + ", descripcion=" + descripcion + ", categoria=" + categoria
 				+ ", importancia=" + importancia + ", dependencia=" + dependencia + ", estado=" + estado + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
