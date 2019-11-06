@@ -11,7 +11,7 @@ public class BDconnection {
 	private static Connection instance=null;//por si hay otra conexión anterior a la nuestra
 	
 	private BDconnection() {
-		
+		//hola estoy doramio
 	}
 	
 	public static Connection getConnection() throws SQLException {
