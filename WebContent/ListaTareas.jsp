@@ -23,7 +23,7 @@
 
 <section>
 
-<h2>Listaaaaa</h2>
+<h2>Lista      fffa</h2>
 <ul>
 <%     
 ListaTareas lista = new ListaTareas();
