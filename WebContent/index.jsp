@@ -22,7 +22,7 @@
 <%@ include file="includes/nav.jsp"%>
 
 <section>
-<h1>Prueba commit</h1> 
+<h1>Prueba laura</h1> 
 </section>
 
 <%@ include file="includes/footer.jsp" %>
