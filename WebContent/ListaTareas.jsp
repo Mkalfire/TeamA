@@ -37,7 +37,7 @@ for(Tarea t: lista.ObtenerlistaTareas()){
 	out.print("<li>"+"<i><b>"+"Dependencia: "+"</i></b>"+t.getDependencia()+"</li>");
 	out.print("<li>"+"<i><b>"+"Estado: "+"</i></b>"+t.getEstado()+"</li>");
 	out.print("</div>");
-	out.print("<a href='AltaTarea?id="+t.getId()+"'>Modificar</a>");
+	//out.print("<a href='AltaTarea?id="+t.getId()+"'>Modificar</a>");
 }
 
 %>
