@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +36,8 @@ public class AltaTarea extends HttpServlet {
 		int categoria= Integer.parseInt(request.getParameter("categoria"));
 		int importancia=Integer.parseInt(request.getParameter("importancia"));
 		int dependencia=Integer.parseInt(request.getParameter("dependencia"));
+		String f_inicio =request.getParameter("f_inicio");
+		String f_final =request.getParameter("f_final");
 		int estado=Integer.parseInt(request.getParameter("estado"));
 		
 		Tarea t= new Tarea();
@@ -42,6 +46,8 @@ public class AltaTarea extends HttpServlet {
 		t.setCategoria(categoria);
 		t.setImportancia(importancia);
 		t.setDependencia(dependencia);
+		t.setF_inicio(f_inicio);
+		t.setF_final(f_final);
 		t.setEstado(estado);
 		t.insertar();
 		response.sendRedirect("ListaTareas.jsp");

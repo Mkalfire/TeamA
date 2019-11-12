@@ -35,6 +35,8 @@ for(Tarea t: lista.ObtenerlistaTareas()){
 	out.print("<li>"+"<i><b>"+"Categoría: "+"</i></b>"+t.getCategoria()+"</li>");
 	out.print("<li>"+"<i><b>"+"Importancia: "+"</i></b>"+t.getImportancia()+"</li>");
 	out.print("<li>"+"<i><b>"+"Dependencia: "+"</i></b>"+t.getDependencia()+"</li>");
+	out.print("<li>"+"<i><b>"+"Fecha de inicio: "+"</i></b>"+(String)t.getF_inicio()+"</li>");
+	out.print("<li>"+"<i><b>"+"Fecha de finalización: "+"</i></b>"+(String)t.getF_final()+"</li>");
 	out.print("<li>"+"<i><b>"+"Estado: "+"</i></b>"+t.getEstado()+"</li>");
 	out.print("</div>");
 	

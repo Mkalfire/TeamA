@@ -59,7 +59,7 @@
 
 <li><label>Fecha de inicio: </label><input type="date" name="f_inicio"></li>
 
-<li><label>Fecha de finalización: </label><input type="date" name="f_inicio"></li>
+<li><label>Fecha de finalización: </label><input type="date" name="f_final"></li>
 
 <label>Estado:</label>
 <select name="estado" class="select3">
