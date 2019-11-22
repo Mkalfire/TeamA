@@ -1,5 +1,6 @@
 <%@page import="modelo.ListaTareas"%>
 <%@page import="modelo.Tarea"%>
+<%@page import="modelo.Categoria"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -23,21 +24,26 @@
 
 <section>
 
-<h2>Lista Tareas</h2>
 <ul>
-<%     
+<%   
 ListaTareas lista = new ListaTareas();
+Categoria c= new Categoria();
+
 
 for(Tarea t: lista.ObtenerlistaTareas()){
 	out.print("<div class='caja'>");
 	out.print("<li>"+"<h4>"+t.getTitulo()+"</h4>"+"</li>");
 	out.print("<li>"+"<i><b>"+"Descripción: "+"</i></b>"+t.getDescripcion()+"</li>");
-	out.print("<li>"+"<i><b>"+"Categoría: "+"</i></b>"+t.getCategoria()+"</li>");
-	out.print("<li>"+"<i><b>"+"Importancia: "+"</i></b>"+t.getImportancia()+"</li>");
-	out.print("<li>"+"<i><b>"+"Dependencia: "+"</i></b>"+t.getDependencia()+"</li>");
-	out.print("<li>"+"<i><b>"+"Estado: "+"</i></b>"+t.getEstado()+"</li>");
+	out.print("<li>"+"<i><b>"+"Fecha de inicio: "+"</i></b>"+(String)t.getF_inicio()+"</li>");
+	out.print("<li>"+"<i><b>"+"Fecha de finalización: "+"</i></b>"+(String)t.getF_final()+"</li>");
+	out.print("<li>"+"<i><b>"+"Categoria:"+"</i></b>"+t.getCategoria()+"</li>");
 	out.print("</div>");
-	//out.print("<a href='AltaTarea?id="+t.getId()+"'>Modificar</a>");
+	out.print("<div class='icons'>");
+	out.print("<a href='AltaTarea?opcion=2&id="+t.getId()+"'>"+"<img src='img/editar.png'>"+"</a>");
+	out.print("<a href='AltaTarea?opcion=3&id="+t.getId()+"'>"+"<img src='img/borrar.png'>"+"</a>");	
+	out.print("</div>");
+
+	
 }
 
 %>

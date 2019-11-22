@@ -1,3 +1,11 @@
+
+<%@page import="java.util.Formatter"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="sun.awt.SunHints.LCDContrastKey"%>
+<%@page import="modelo.Tarea"%>
+<%@page import="modelo.Categoria"%>
+
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -5,13 +13,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
- <meta charset="utf-8">
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/estilos.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
+	<script src="js/validar.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -22,59 +30,73 @@
 <%@ include file="includes/nav.jsp"%>
 
 <section>
+  <%		
+				String id = "0";
+				if (request.getAttribute("id") != null) {
+					id = request.getAttribute("id").toString();
+				}
+				Tarea t = new Tarea();
+				Categoria c = new Categoria();
+				
+				
+				
+				t.buscarID(Integer.parseInt(id));
+				c.buscarID(Integer.parseInt(id));
+		
+			%>
 
-<div class="formulario">
-<h2>Insertar Tareas</h2>
-<form name="tarea" action="AltaTarea" method="get">
+	
+<div class="formulario" id="formu">
+<h2>Insertar Tarea</h2>
+<form name="tarea" action="AltaTarea" method="get" enctype="multipart/form-data">
 
-<li><label>Título:</label><input type="text" name="titulo" class="titu"></li>
-<li><label>Descripción:</label><textarea name="descripcion" ></textarea></li>
+<li><label>Título:</label><input type="text" name="titulo" id="titulo" class="titu" value='<% if(request.getAttribute("id")!=null)
+out.print(t.getTitulo());%>'></li>
+
+<li><label>Descripción:</label><textarea name="descripcion" id="descripcion"><%  if(request.getAttribute("id")!=null)out.print(t.getDescripcion());%></textarea></li>
+<li>
+
+
+<li><label>Fecha Inicio: </label><input type="date" id="f_inicio" class="fecha1" name="f_inicio" value='<% 
+	
+	if(request.getAttribute("id")!=null)out.print(t.getF_inicio());%>'></li>
+
+<li><label>Fecha Final: </label><input type="date"  class="fecha2" name="f_final" id="f_final" value='<% if (request.getAttribute("id")!=null)out.print(t.getF_final());%>'></li>
+
+
 <li>
 <label>Categoría:</label>
-<select name="categoria" class="select0">
-<option value="0">Letras</option>
-<option value="1">Operaciones</option>
-<option value="2">Idiomas</option>
-<option value="3">Otro</option>
-</select>
-</li>
-<li>
-<label>Importancia:</label>
-<select name="importancia" class="select1">
-<option value="0">Nada</option>
-<option value="1">Baja</option>
-<option value="2">Media</option>
-<option value="3">Importante</option>
-</select>
-</li>
-<li>
-<label>Pertenece a la tarea:</label>
-<select name="dependencia" class="select2">
-<option value="0">...</option>
-<option value="1">Proyecto 5</option>
-<option value="2"> Proyecto 6</option>
-<option value="3">Proyecto 7</option>
+<select name="categoria" id="categoria" class="select0">
+
+		<%
+		if(c.ObtenerListaCategoria().size()!=0){
+			
+			for(Categoria cate : c.ObtenerListaCategoria()){
+				
+				out.print(" <option value=" + cate.getId() + ">" + cate.getNombre() + "</option>");
+			}
+		}else{
+			
+			
+		}	
+		%>
+	
 </select>
 </li>
 
-<label>Estado:</label>
-<select name="estado" class="select3">
-<option value="0">...</option>
-<option value="1">Sin empezar</option>
-<option value="2">En espera</option>
-<option value="3">En proceso </option>
-<option value="4">Terminada </option>
-</select>
-</li>
+<input type="hidden" name="id" id="id" value='<% if(request.getAttribute("id")!=null)
+	out.print(t.getId());else out.print(0);%>'>
+<input type="hidden" name="opcion" value="1">
+<input type="button"  value="enviar" onclick="validacion()" >
+<div id="boton"></div>
 
-<input type="submit" value="enviar">
 </form>
 </div>
 
 </section>
 
 <%@ include file="includes/footer.jsp" %>
-
+	
 </div>
 
 </body>
